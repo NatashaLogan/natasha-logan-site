@@ -132,13 +132,14 @@ blockquote { margin: 8px 0; padding-left: 20px; border-left: 2px solid var(--acc
 .collection-intro .why { gap: 10px; }
 .collection-intro .why p { max-width: none; }
 .collection-label { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--muted); margin-bottom: 24px; }
-.book-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 40px 32px; }
+.book-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 48px 40px; }
 .book { display: flex; flex-direction: column; gap: 14px; min-width: 0; }
 .book .cover-link { display: block; text-decoration: none; transition: transform .2s ease; }
 .book .cover-link:hover { transform: translateY(-4px); }
 .book .cover-link img { aspect-ratio: 2 / 3; width: 100%; object-fit: cover; border-radius: 2px; box-shadow: 0 14px 30px -18px rgba(0,0,0,0.55); }
 .book .meta { font-size: 0.8rem; color: var(--muted); letter-spacing: 0.04em; }
 .book p { color: var(--muted); font-size: 0.97rem; }
+.book .link { align-self: flex-start; margin-top: auto; }
 
 /* Content pages: skoolie ---------------------------------------------------- */
 .page-intro .h1-sub { font-family: var(--body); font-weight: 500; font-size: clamp(1.3rem, 3vw, 1.8rem); color: var(--muted); margin-top: -8px; }
@@ -178,7 +179,7 @@ blockquote { margin: 8px 0; padding-left: 20px; border-left: 2px solid var(--acc
   .hero, .band, .about { grid-template-columns: 1fr; gap: 36px; }
   .hero-portrait { justify-self: start; width: min(280px, 100%); }
   .about .portrait-wrap { max-width: 280px; }
-  .book-grid { gap: 32px 20px; }
+  .book-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 40px 28px; }
   .features, .entry-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
   .photo-grid--3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
@@ -189,7 +190,7 @@ blockquote { margin: 8px 0; padding-left: 20px; border-left: 2px solid var(--acc
   .nav { gap: 8px 18px; }
   .facts { grid-template-columns: 1fr; gap: 2px 0; }
   .facts dd { margin-bottom: 10px; }
-  .features, .entry-grid, .book-grid, .photo-grid--3, .photo-grid--2 { grid-template-columns: 1fr; }
+  .features, .entry-grid, .photo-grid--3, .photo-grid--2 { grid-template-columns: 1fr; }
 }
 
 /* Motion ------------------------------------------------------------------ */
