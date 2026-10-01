@@ -97,6 +97,7 @@ p { margin: 0; max-width: 62ch; }
 .hero h1 { font-size: clamp(3rem, 8vw, 5.6rem); }
 .hero-actions { display: flex; gap: 20px; align-items: center; flex-wrap: wrap; margin-top: 8px; }
 .hero-portrait { width: min(360px, 100%); justify-self: end; }
+.hero-portrait .portrait { object-position: right; }
 
 /* Home: feature cards ----------------------------------------------------- */
 .features { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; margin-top: 64px; }
