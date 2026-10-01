@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Books | Natasha Logan</title>
+  <meta name="description" content="Books by Natasha Logan.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gloock&family=Figtree:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-page="books">
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="wordmark" href="index.html">Natasha Logan</a>
+      <nav aria-label="Main">
+        <ul class="nav">
+          <li><a href="index.html" data-page="home">Home</a></li>
+          <li><a href="about.html" data-page="about">About</a></li>
+          <li><a href="books.html" data-page="books">Books</a></li>
+          <li><a href="skoolie.html" data-page="skoolie">Skoolie</a></li>
+          <li><a href="cycling.html" data-page="cycling">Cycling</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page">
+    <div class="wrap">
+      <div class="stack page-intro">
+        <span class="eyebrow">Author &amp; creator</span>
+        <h1>Books</h1>
+      </div>
+
+      <section class="collection">
+        <div class="stack collection-intro">
+          <h2>Faith &amp; Life Collection</h2>
+          <div class="stack why">
+            <span class="eyebrow">Why I created it</span>
+            <p>The Faith &amp; Life Collection grew from my desire to create practical tools that bring together faith, reflection, planning and personal growth. I wanted each book to feel useful in everyday life, not simply inspirational for a moment. The planners create space for intention and organization, the motivational book offers encouragement and perspective, and the companion workbook turns reflection into action. Writing and developing the collection allowed me to combine creativity with something deeply important to me: helping people pause, refocus and keep moving toward a brighter version of their lives.</p>
+          </div>
+        </div>
+
+        <h3 class="collection-label">Books &amp; planners by Natasha Logan</h3>
+
+        <!-- Cards render from js/data.js -->
+        <div class="book-grid" data-collection="books"></div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <span>&copy; 2026 Natasha Logan. Placeholder content.</span>
+      <span>Home · About · Books · Skoolie · Cycling</span>
+    </div>
+  </footer>
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
