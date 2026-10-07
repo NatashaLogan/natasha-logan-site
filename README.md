@@ -8,9 +8,12 @@ Personal website for author Natasha Logan. Plain HTML, CSS, and JavaScript with 
 .
 ├── index.html      Home: hero, feature cards, social links
 ├── about.html      Bio page
+├── family.html     Family story and photos
 ├── books.html      Content page (cards from js/data.js)
 ├── skoolie.html    Skoolie story and photo gallery
 ├── cycling.html    Cycling story and Bicycle Bae photo gallery
+├── envime.html     Envi Me Athletic Wear brand story and photo gallery
+├── contact.html    Closing note and contact details
 ├── css/
 │   └── styles.css  All styles, tokens at the top
 ├── js/

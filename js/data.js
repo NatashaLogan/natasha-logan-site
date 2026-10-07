@@ -17,11 +17,11 @@ window.SITE_DATA = {
       intro: "Practical encouragement for a more purposeful you, small steps toward a brighter, more intentional life." },
     { title: "2027 Faith & Life Planner, Men's Edition", year: "2027", type: "Planner",
       image: "images/book-covers/2027-planner-mens-edition.jpg",
-      link: "https://example.com",
+      link: "https://www.amazon.com/dp/B0HK712KS6",
       intro: "A dedicated planner for pursuing purpose, prayer, focus, and personal growth, one day at a time." },
     { title: "2027 Faith & Life Planner", year: "2027", type: "Planner",
       image: "images/book-covers/2027-planner.jpg",
-      link: "https://example.com",
+      link: "https://www.amazon.com/dp/B0HJNDHFXM",
       intro: "Plan, reflect, pray, and grow: a full year planner built around faith and intention." }
   ]
 };
