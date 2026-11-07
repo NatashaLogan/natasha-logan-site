@@ -9,11 +9,11 @@ window.SITE_DATA = {
   books: [
     { title: "Faith & Life Workbook", year: "2026", type: "Workbook",
       image: "images/book-covers/faith-life-workbook.jpg",
-      link: "https://example.com",
+      link: "https://www.amazon.com/dp/B0HN19XW88",
       intro: "A companion workbook that turns reflection into action, with space to process what you're learning and apply it to daily life." },
     { title: "Faith & Life: A Motivational Book", year: "2026", type: "Motivational book",
       image: "images/book-covers/faith-life-motivational-book.jpg",
-      link: "https://example.com",
+      link: "https://www.amazon.com/dp/B0HN4QN3HB",
       intro: "Practical encouragement for a more purposeful you, small steps toward a brighter, more intentional life." },
     { title: "2027 Faith & Life Planner, Men's Edition", year: "2027", type: "Planner",
       image: "images/book-covers/2027-planner-mens-edition.jpg",
