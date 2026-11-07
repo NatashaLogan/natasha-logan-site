@@ -1,0 +1,12 @@
+{%- comment -%} Link list for the "Stay in touch" bands. Pass items=... {%- endcomment -%}
+<ul class="socials">
+  {%- for s in include.items %}
+  <li>
+    <a class="social" href="{{ s.url | escape }}"{% unless s.url contains 'mailto:' or s.url contains 'tel:' %} target="_blank" rel="noopener"{% endunless %}>
+      <span class="social-name">{{ s.name }}</span>
+      <span class="social-desc">{{ s.description }}</span>
+      <span class="social-arrow" aria-hidden="true">&#8599;</span>
+    </a>
+  </li>
+  {%- endfor %}
+</ul>

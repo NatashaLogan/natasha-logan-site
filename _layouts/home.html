@@ -1,0 +1,45 @@
+---
+layout: default
+---
+    <div class="wrap">
+
+      <!-- Hero -->
+      <section class="hero">
+        <div class="stack">
+          <span class="eyebrow">{{ page.eyebrow }}</span>
+          <h1>{{ page.heading }}</h1>
+          <p class="lede">{{ page.intro }}</p>
+          <div class="hero-actions">
+            <a class="btn" href="{{ '/about.html' | relative_url }}">Read my story</a>
+            <a class="link" href="{{ '/books.html' | relative_url }}">See my books</a>
+          </div>
+        </div>
+        <div class="hero-portrait">
+          <img class="portrait" src="{{ page.portrait | relative_url }}" alt="Natasha Logan">
+        </div>
+      </section>
+
+      <!-- Feature cards -->
+      <section class="features" aria-label="Explore">
+        {%- for f in page.features %}
+        <a class="feature" href="{{ f.page | relative_url }}">
+          <img{% if f.page contains 'books' %} class="feature-cover"{% endif %} src="{{ f.image | relative_url }}" alt="" loading="lazy">
+          <div class="feature-body">
+            <h3>{{ f.title }}</h3>
+            <p>{{ f.text }}</p>
+            <span class="more">{{ f.link_text }}</span>
+          </div>
+        </a>
+        {%- endfor %}
+      </section>
+
+      <!-- Social links -->
+      <section class="band">
+        <div class="stack">
+          <span class="eyebrow">{{ page.socials_eyebrow }}</span>
+          <h2>{{ page.socials_heading }}</h2>
+        </div>
+        {% include socials.html items=site.data.contact.socials %}
+      </section>
+
+    </div>

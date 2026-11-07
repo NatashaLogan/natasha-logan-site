@@ -1,0 +1,296 @@
+# Pages CMS configuration: https://pagescms.org/docs/configuration/
+# Each page is a Markdown file: the fields below edit its front matter,
+# and "body" edits the text under it. Layouts live in _layouts/.
+
+settings:
+  content:
+    merge: true   # keep any front matter keys not listed here
+
+media:
+  input: images
+  output: /images
+  categories: [image]
+
+components:
+  photo:
+    type: object
+    fields:
+      - { name: image, label: Photo, type: image, required: true }
+      - name: alt
+        label: Photo description
+        type: string
+        description: Describe the photo for screen readers and Google Images.
+  gallery_photo:
+    type: object
+    fields:
+      - { name: image, label: Photo, type: image, required: true }
+      - { name: caption, label: Caption, type: string }
+      - name: alt
+        label: Photo description
+        type: string
+        description: Describe the photo for screen readers and Google Images.
+
+content:
+  - name: pages
+    label: Pages
+    type: group
+    items:
+
+      - name: home
+        label: Home
+        type: file
+        path: index.md
+        format: yaml-frontmatter
+        fields:
+          - { name: layout, type: string, hidden: true, default: home }
+          - { name: key, type: string, hidden: true, default: home }
+          - { name: title, label: Page name, type: string, hidden: true, default: Home }
+          - { name: description, label: Search description, type: text }
+          - { name: share_image, label: Share image, type: image }
+          - { name: eyebrow, label: Small label above name, type: string }
+          - { name: heading, label: Heading, type: string }
+          - { name: intro, label: Intro, type: text }
+          - { name: portrait, label: Portrait, type: image }
+          - name: features
+            label: Feature cards
+            type: object
+            list: { collapsible: { collapsed: true, summary: "{fields.title}" } }
+            fields:
+              - { name: title, label: Title, type: string }
+              - { name: text, label: Text, type: text }
+              - { name: link_text, label: Link text, type: string }
+              - { name: image, label: Image, type: image }
+              - name: page
+                label: Links to
+                type: select
+                options:
+                  values:
+                    - { name: /about.html, label: About }
+                    - { name: /family.html, label: Family }
+                    - { name: /books.html, label: Books }
+                    - { name: /skoolie.html, label: Skoolie }
+                    - { name: /cycling.html, label: Cycling }
+                    - { name: /envime.html, label: Envi Me }
+                    - { name: /contact.html, label: Contact }
+          - { name: socials_eyebrow, label: Social section label, type: string }
+          - { name: socials_heading, label: Social section heading, type: string }
+
+      - name: about
+        label: About
+        type: file
+        path: about.md
+        format: yaml-frontmatter
+        fields:
+          - { name: layout, type: string, hidden: true, default: about }
+          - { name: key, type: string, hidden: true, default: about }
+          - { name: title, label: Page name (browser tab), type: string }
+          - { name: description, label: Search description, type: text }
+          - { name: share_image, label: Share image, type: image }
+          - { name: eyebrow, label: Small label above heading, type: string }
+          - { name: heading, label: Heading, type: string }
+          - { name: intro, label: Intro (large text), type: text }
+          - { name: quote, label: Pull quote, type: text }
+          - { name: portrait, label: Portrait, type: image }
+          - { name: body, label: Story text, type: rich-text, options: { format: markdown } }
+
+      - name: family
+        label: Family
+        type: file
+        path: family.md
+        format: yaml-frontmatter
+        fields:
+          - { name: layout, type: string, hidden: true, default: family }
+          - { name: key, type: string, hidden: true, default: family }
+          - { name: title, label: Page name (browser tab), type: string }
+          - { name: description, label: Search description, type: text }
+          - { name: share_image, label: Share image, type: image }
+          - { name: eyebrow, label: Small label above heading, type: string }
+          - { name: heading, label: Heading, type: string }
+          - { name: subheading, label: Subheading, type: string }
+          - name: intro_section
+            label: Intro section
+            type: object
+            fields:
+              - { name: heading, label: Heading, type: string }
+              - { name: text, label: Text, type: text }
+              - { name: photo, label: Photo, component: photo }
+          - name: children_section
+            label: Children section
+            type: object
+            fields:
+              - { name: heading, label: Heading, type: string }
+              - { name: names, label: Names, type: string }
+              - { name: text, label: Text, type: text }
+              - { name: photo, label: Photo, component: photo }
+          - name: partner_section
+            label: Partner section
+            type: object
+            fields:
+              - { name: heading, label: Heading, type: string }
+              - { name: names, label: Name, type: string }
+              - { name: text, label: Text, type: text }
+              - name: photos
+                label: Photos (two work best)
+                component: photo
+                list: { max: 4 }
+          - name: generations_section
+            label: Five generations section
+            type: object
+            fields:
+              - { name: heading, label: Heading, type: string }
+              - { name: subheading, label: Subheading, type: string }
+              - { name: text, label: Text, type: text }
+              - { name: photo, label: Photo, component: photo }
+              - name: people
+                label: People and ages
+                type: object
+                list: true
+                fields:
+                  - { name: name, label: Name, type: string }
+                  - { name: age, label: Age, type: string }
+
+      - name: books_page
+        label: Books
+        type: file
+        path: books.md
+        format: yaml-frontmatter
+        fields:
+          - { name: layout, type: string, hidden: true, default: books }
+          - { name: key, type: string, hidden: true, default: books }
+          - { name: title, label: Page name (browser tab), type: string }
+          - { name: description, label: Search description, type: text }
+          - { name: share_image, label: Share image, type: image }
+          - { name: eyebrow, label: Small label above heading, type: string }
+          - { name: heading, label: Heading, type: string }
+          - { name: collection_title, label: Collection name, type: string }
+          - { name: why_heading, label: Label above the story, type: string }
+          - { name: list_heading, label: Heading above the books, type: string }
+          - { name: body, label: Why I created it, type: rich-text, options: { format: markdown } }
+
+      - name: skoolie
+        label: Skoolie
+        type: file
+        path: skoolie.md
+        format: yaml-frontmatter
+        fields:
+          - { name: layout, type: string, hidden: true, default: gallery }
+          - { name: key, type: string, hidden: true }
+          - { name: gallery_style, type: string, hidden: true }
+          - { name: title, label: Page name (browser tab), type: string }
+          - { name: description, label: Search description, type: text }
+          - { name: share_image, label: Share image, type: image }
+          - { name: eyebrow, label: Small label above heading, type: string }
+          - { name: heading, label: Heading, type: string }
+          - { name: subheading, label: Subheading, type: string }
+          - { name: story_heading, label: Story heading, type: string }
+          - { name: body, label: Story text, type: rich-text, options: { format: markdown } }
+          - { name: logo, label: Logo (optional), type: image }
+          - { name: logo_alt, label: Logo description, type: string }
+          - { name: gallery_heading, label: Gallery heading (optional), type: string }
+          - name: photos
+            label: Photos
+            component: gallery_photo
+            list: { collapsible: { collapsed: true, summary: "{fields.caption}" } }
+
+      - name: cycling
+        label: Cycling
+        type: file
+        path: cycling.md
+        format: yaml-frontmatter
+        fields:
+          - { name: layout, type: string, hidden: true, default: gallery }
+          - { name: key, type: string, hidden: true }
+          - { name: gallery_style, type: string, hidden: true }
+          - { name: title, label: Page name (browser tab), type: string }
+          - { name: description, label: Search description, type: text }
+          - { name: share_image, label: Share image, type: image }
+          - { name: eyebrow, label: Small label above heading, type: string }
+          - { name: heading, label: Heading, type: string }
+          - { name: subheading, label: Subheading, type: string }
+          - { name: story_heading, label: Story heading, type: string }
+          - { name: body, label: Story text, type: rich-text, options: { format: markdown } }
+          - { name: logo, label: Logo (optional), type: image }
+          - { name: logo_alt, label: Logo description, type: string }
+          - { name: gallery_heading, label: Gallery heading (optional), type: string }
+          - name: photos
+            label: Photos
+            component: gallery_photo
+            list: { collapsible: { collapsed: true, summary: "{fields.caption}" } }
+
+      - name: envime
+        label: Envi Me
+        type: file
+        path: envime.md
+        format: yaml-frontmatter
+        fields:
+          - { name: layout, type: string, hidden: true, default: gallery }
+          - { name: key, type: string, hidden: true }
+          - { name: gallery_style, type: string, hidden: true }
+          - { name: title, label: Page name (browser tab), type: string }
+          - { name: description, label: Search description, type: text }
+          - { name: share_image, label: Share image, type: image }
+          - { name: eyebrow, label: Small label above heading, type: string }
+          - { name: heading, label: Heading, type: string }
+          - { name: subheading, label: Subheading, type: string }
+          - { name: story_heading, label: Story heading, type: string }
+          - { name: body, label: Story text, type: rich-text, options: { format: markdown } }
+          - { name: logo, label: Logo (optional), type: image }
+          - { name: logo_alt, label: Logo description, type: string }
+          - { name: gallery_heading, label: Gallery heading (optional), type: string }
+          - name: photos
+            label: Photos
+            component: gallery_photo
+            list: { collapsible: { collapsed: true, summary: "{fields.caption}" } }
+
+      - name: contact_page
+        label: Contact
+        type: file
+        path: contact.md
+        format: yaml-frontmatter
+        fields:
+          - { name: layout, type: string, hidden: true, default: contact }
+          - { name: key, type: string, hidden: true, default: contact }
+          - { name: title, label: Page name (browser tab), type: string }
+          - { name: description, label: Search description, type: text }
+          - { name: share_image, label: Share image, type: image }
+          - { name: eyebrow, label: Small label above heading, type: string }
+          - { name: heading, label: Heading, type: string }
+          - { name: intro, label: Intro (large text), type: text }
+          - { name: body, label: Story text, type: rich-text, options: { format: markdown } }
+          - { name: band_eyebrow, label: Contact box label, type: string }
+          - { name: band_heading, label: Contact box heading, type: string }
+          - { name: band_text, label: Contact box text, type: string }
+
+  - name: books
+    label: Books list
+    type: file
+    path: _data/books.yml
+    format: yaml
+    list: true
+    fields:
+      - { name: title, label: Title, type: string, required: true }
+      - name: type
+        label: Type
+        type: string
+        description: For example Workbook, Planner or Motivational book.
+      - { name: year, label: Year, type: string }
+      - { name: cover, label: Cover image, type: image, options: { path: images/book-covers } }
+      - { name: link, label: Amazon link, type: string, description: "Tip: shorten to https://www.amazon.com/dp/XXXXXXXXXX" }
+      - { name: intro, label: Short description, type: text }
+
+  - name: contact_info
+    label: Contact & social links
+    type: file
+    path: _data/contact.yml
+    format: yaml
+    fields:
+      - { name: email, label: Email, type: string }
+      - { name: phone, label: Phone, type: string, description: "Format: 832.617.0667" }
+      - name: socials
+        label: Social links
+        type: object
+        list: true
+        fields:
+          - { name: name, label: Name, type: string }
+          - { name: description, label: Short description, type: string }
+          - { name: url, label: Link, type: string }

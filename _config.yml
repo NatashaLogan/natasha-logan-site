@@ -1,0 +1,11 @@
+# Jekyll settings. GitHub Pages builds the site from these files automatically.
+title: Natasha Logan
+url: https://natashalogan.com
+baseurl: ""
+
+markdown: kramdown
+
+exclude:
+  - README.md
+  - .pages.yml
+  - .vscode

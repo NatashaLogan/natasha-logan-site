@@ -1,11 +1,9 @@
+---
+layout: null
+---
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://natashalogan.com/</loc></url>
-  <url><loc>https://natashalogan.com/about.html</loc></url>
-  <url><loc>https://natashalogan.com/books.html</loc></url>
-  <url><loc>https://natashalogan.com/family.html</loc></url>
-  <url><loc>https://natashalogan.com/skoolie.html</loc></url>
-  <url><loc>https://natashalogan.com/cycling.html</loc></url>
-  <url><loc>https://natashalogan.com/envime.html</loc></url>
-  <url><loc>https://natashalogan.com/contact.html</loc></url>
+{%- for p in site.pages %}{% if p.key %}
+  <url><loc>{{ p.url | replace: "index.html", "" | absolute_url }}</loc></url>
+{%- endif %}{% endfor %}
 </urlset>

@@ -1,0 +1,41 @@
+---
+layout: default
+---
+    <div class="wrap">
+      <div class="stack page-intro">
+        <span class="eyebrow">{{ page.eyebrow }}</span>
+        <h1>{{ page.heading }}</h1>
+        <hr class="rule">
+      </div>
+
+      <div class="stack">
+        <p class="lede">{{ page.intro }}</p>
+{{ content }}
+      </div>
+
+      <section class="band">
+        <div class="stack">
+          <span class="eyebrow">{{ page.band_eyebrow }}</span>
+          <h2>{{ page.band_heading }}</h2>
+          <p>{{ page.band_text }}</p>
+        </div>
+        {%- assign c = site.data.contact %}
+        {%- assign tel = c.phone | remove: "." | remove: "-" | remove: " " | remove: "(" | remove: ")" %}
+        <ul class="socials">
+          <li>
+            <a class="social" href="mailto:{{ c.email }}">
+              <span class="social-name">Email</span>
+              <span class="social-desc">{{ c.email }}</span>
+              <span class="social-arrow" aria-hidden="true">&#8599;</span>
+            </a>
+          </li>
+          <li>
+            <a class="social" href="tel:+1{{ tel }}">
+              <span class="social-name">Phone</span>
+              <span class="social-desc">{{ c.phone }}</span>
+              <span class="social-arrow" aria-hidden="true">&#8599;</span>
+            </a>
+          </li>
+        </ul>
+      </section>
+    </div>

@@ -1,0 +1,17 @@
+---
+layout: default
+---
+    <div class="wrap about">
+      <div class="portrait-wrap">
+        <img class="portrait" src="{{ page.portrait | relative_url }}" alt="Natasha Logan">
+      </div>
+      <div class="stack">
+        <span class="eyebrow">{{ page.eyebrow }}</span>
+        <h1>{{ page.heading }}</h1>
+        <p class="lede">{{ page.intro }}</p>
+        {%- if page.quote %}
+        <blockquote>{{ page.quote }}</blockquote>
+        {%- endif %}
+{{ content }}
+      </div>
+    </div>

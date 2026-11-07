@@ -1,0 +1,34 @@
+---
+layout: default
+---
+    <div class="wrap">
+      <div class="stack page-intro">
+        <span class="eyebrow">{{ page.eyebrow }}</span>
+        <h1>{{ page.heading }}</h1>
+      </div>
+
+      <section class="collection">
+        <div class="stack collection-intro">
+          <h2>{{ page.collection_title }}</h2>
+          <div class="stack why">
+            <span class="eyebrow">{{ page.why_heading }}</span>
+{{ content }}
+          </div>
+        </div>
+
+        <h3 class="collection-label">{{ page.list_heading }}</h3>
+
+        <!-- Books come from _data/books.yml -->
+        <div class="book-grid">
+          {%- for b in site.data.books %}
+          <article class="book">
+            <a class="cover-link" href="{{ b.link | escape }}" target="_blank" rel="noopener" aria-label="{{ b.title | escape }}"><img src="{{ b.cover | relative_url }}" alt="Cover of {{ b.title | escape }}" loading="lazy"></a>
+            <span class="meta">{{ b.type }} · {{ b.year }}</span>
+            <h3>{{ b.title }}</h3>
+            <p>{{ b.intro }}</p>
+            <a class="link" href="{{ b.link | escape }}" target="_blank" rel="noopener">Learn more</a>
+          </article>
+          {%- endfor %}
+        </div>
+      </section>
+    </div>

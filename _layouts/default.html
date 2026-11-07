@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  {%- if page.key == "home" %}{% assign full_title = site.title %}{% else %}{% assign full_title = page.title | append: " | " | append: site.title %}{% endif %}
+  {%- assign canonical = page.url | replace: "index.html", "" | absolute_url %}
+  {%- assign share_image = page.share_image | default: "/images/headshot.jpg" | absolute_url %}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ full_title }}</title>
+  <meta name="description" content="{{ page.description | escape }}">
+  <link rel="canonical" href="{{ canonical }}">
+  <link rel="icon" href="{{ '/favicon.svg' | relative_url }}" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="{{ '/images/headshot.jpg' | relative_url }}">
+  <meta property="og:type" content="{% if page.key == 'home' %}website{% else %}article{% endif %}">
+  <meta property="og:site_name" content="{{ site.title }}">
+  <meta property="og:title" content="{{ full_title | escape }}">
+  <meta property="og:description" content="{{ page.description | escape }}">
+  <meta property="og:url" content="{{ canonical }}">
+  <meta property="og:image" content="{{ share_image }}">
+  <meta name="twitter:card" content="{% if share_image contains 'headshot' %}summary{% else %}summary_large_image{% endif %}">
+  <meta name="twitter:title" content="{{ full_title | escape }}">
+  <meta name="twitter:description" content="{{ page.description | escape }}">
+  <meta name="twitter:image" content="{{ share_image }}">
+  {%- if page.key == "home" or page.key == "about" %}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Natasha Logan",
+    "url": "{{ '/' | absolute_url }}",
+    "image": "{{ '/images/headshot.jpg' | absolute_url }}",
+    "jobTitle": "Author",
+    "description": "Author, entrepreneur, creator, traveler and cyclist.",
+    "alumniOf": { "@type": "CollegeOrUniversity", "name": "University of Houston" },
+    "sameAs": [{% for s in site.data.contact.socials %}{{ s.url | jsonify }}{% unless forloop.last %}, {% endunless %}{% endfor %}]
+  }
+  </script>
+  {%- endif %}
+  {%- if page.key == "books" %}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": {{ page.collection_title | jsonify }},
+    "itemListElement": [{% for b in site.data.books %}
+      {
+        "@type": "ListItem",
+        "position": {{ forloop.index }},
+        "item": {
+          "@type": "Book",
+          "name": {{ b.title | jsonify }},
+          "description": {{ b.intro | jsonify }},
+          "url": {{ b.link | jsonify }},
+          "image": {{ b.cover | absolute_url | jsonify }},
+          "author": { "@type": "Person", "name": "Natasha Logan", "url": "{{ '/' | absolute_url }}" }
+        }
+      }{% unless forloop.last %},{% endunless %}{% endfor %}
+    ]
+  }
+  </script>
+  {%- endif %}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gloock&family=Figtree:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="{{ '/css/styles.css' | relative_url }}">
+</head>
+<body data-page="{{ page.key }}">
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="wordmark" href="{{ '/' | relative_url }}">Natasha Logan</a>
+      <nav aria-label="Main">
+        <ul class="nav">
+          <li><a href="{{ '/' | relative_url }}" data-page="home">Home</a></li>
+          <li><a href="{{ '/about.html' | relative_url }}" data-page="about">About</a></li>
+          <li><a href="{{ '/family.html' | relative_url }}" data-page="family">Family</a></li>
+          <li><a href="{{ '/books.html' | relative_url }}" data-page="books">Books</a></li>
+          <li><a href="{{ '/skoolie.html' | relative_url }}" data-page="skoolie">Skoolie</a></li>
+          <li><a href="{{ '/cycling.html' | relative_url }}" data-page="cycling">Cycling</a></li>
+          <li><a href="{{ '/envime.html' | relative_url }}" data-page="envime">Envi Me</a></li>
+          <li><a href="{{ '/contact.html' | relative_url }}" data-page="contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page">
+{{ content }}
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <span>&copy; {{ site.time | date: "%Y" }} Natasha Logan</span>
+      <span>Home · About · Family · Books · Skoolie · Cycling · Envi Me · Contact</span>
+    </div>
+  </footer>
+  <script src="{{ '/js/main.js' | relative_url }}"></script>
+</body>
+</html>

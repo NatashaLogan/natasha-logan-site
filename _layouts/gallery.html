@@ -1,0 +1,59 @@
+---
+layout: default
+---
+{%- comment -%}
+  Story + photo gallery (Skoolie, Cycling, Envi Me).
+  gallery_style "cards": two-column cards with the caption above each photo.
+  gallery_style "rows": first three photos in a row, the rest in pairs, caption below.
+{%- endcomment %}
+    <div class="wrap">
+      <div class="stack page-intro">
+        <span class="eyebrow">{{ page.eyebrow }}</span>
+        <h1>{{ page.heading }}</h1>
+        {%- if page.subheading %}
+        <p class="h1-sub">{{ page.subheading }}</p>
+        {%- endif %}
+        <hr class="rule">
+      </div>
+
+      <div class="stack skoolie-story">
+        <h2 class="story-meta">{{ page.story_heading }}</h2>
+{{ content }}
+      </div>
+
+      {%- if page.logo %}
+
+      <img class="brand-logo" src="{{ page.logo | relative_url }}" alt="{{ page.logo_alt | escape }}">
+      {%- endif %}
+
+      {%- if page.gallery_style == "rows" %}
+
+      <section class="transformation">
+        {%- if page.gallery_heading %}
+        <h2 class="section-heading">{{ page.gallery_heading }}</h2>
+        {%- endif %}
+        <div class="photo-grid photo-grid--3">
+          {%- for p in page.photos limit: 3 %}
+          {% include photo.html photo=p %}
+          {%- endfor %}
+        </div>
+        {%- if page.photos.size > 3 %}
+        <div class="photo-grid photo-grid--2">
+          {%- for p in page.photos offset: 3 %}
+          {% include photo.html photo=p %}
+          {%- endfor %}
+        </div>
+        {%- endif %}
+      </section>
+      {%- else %}
+
+      {%- if page.gallery_heading %}
+      <h2 class="section-heading">{{ page.gallery_heading }}</h2>
+      {%- endif %}
+      <div class="photo-grid photo-grid--2 photo-grid--cards">
+        {%- for p in page.photos %}
+        {% include photo.html photo=p card="yes" %}
+        {%- endfor %}
+      </div>
+      {%- endif %}
+    </div>

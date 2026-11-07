@@ -1,0 +1,11 @@
+{%- comment -%} One gallery photo. Pass photo=... and optionally card="yes" (caption above image). {%- endcomment -%}
+{%- assign p = include.photo -%}
+<figure class="photo{% if include.card %} photo-card{% endif %}">
+  {%- if include.card and p.caption %}
+  <figcaption>{{ p.caption }}</figcaption>
+  {%- endif %}
+  <img src="{{ p.image | relative_url }}" alt="{{ p.alt | escape }}">
+  {%- unless include.card %}{% if p.caption %}
+  <figcaption>{{ p.caption }}</figcaption>
+  {%- endif %}{% endunless %}
+</figure>
