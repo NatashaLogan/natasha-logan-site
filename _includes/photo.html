@@ -1,10 +1,10 @@
-{%- comment -%} One gallery photo. Pass photo=... and optionally card="yes" (caption above image). {%- endcomment -%}
+{%- comment -%} One gallery photo. Pass photo=... and optionally card="yes" (caption above image) and eager="yes" (for photos near the top of the page; others load as you scroll). {%- endcomment -%}
 {%- assign p = include.photo -%}
 <figure class="photo{% if include.card %} photo-card{% endif %}">
   {%- if include.card and p.caption %}
   <figcaption>{{ p.caption }}</figcaption>
   {%- endif %}
-  <img src="{{ p.image | relative_url }}" alt="{{ p.alt | escape }}">
+  <img src="{{ p.image | relative_url }}" alt="{{ p.alt | escape }}"{% unless include.eager %} loading="lazy"{% endunless %} decoding="async">
   {%- unless include.card %}{% if p.caption %}
   <figcaption>{{ p.caption }}</figcaption>
   {%- endif %}{% endunless %}

@@ -17,7 +17,7 @@ layout: default
           <h2 class="story-meta">{{ s.heading }}</h2>
           {{ s.text | markdownify }}
         </div>
-        {% include photo.html photo=s.photo %}
+        {% include photo.html photo=s.photo eager="yes" %}
       </section>
 
       {%- assign s = page.children_section %}
@@ -32,20 +32,6 @@ layout: default
         </div>
       </section>
 
-      {%- assign s = page.partner_section %}
-      <section class="family-section">
-        <h2 class="section-heading">{{ s.heading }}</h2>
-        <div class="photo-grid photo-grid--2 family-pair">
-          {%- for p in s.photos %}
-          {% include photo.html photo=p %}
-          {%- endfor %}
-        </div>
-        <div class="stack family-note">
-          <h3 class="story-meta">{{ s.names }}</h3>
-          {{ s.text | markdownify }}
-        </div>
-      </section>
-
       {%- assign s = page.generations_section %}
       <section class="family-section">
         <h2 class="section-heading">{{ s.heading }}</h2>
@@ -56,13 +42,6 @@ layout: default
           {% include photo.html photo=s.photo %}
           <div class="stack">
             {{ s.text | markdownify }}
-            {%- if s.people %}
-            <dl class="facts">
-              {%- for person in s.people %}
-              <dt>{{ person.name }}</dt><dd>{{ person.age }}</dd>
-              {%- endfor %}
-            </dl>
-            {%- endif %}
           </div>
         </div>
       </section>

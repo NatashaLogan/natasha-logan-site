@@ -2,6 +2,7 @@
 layout: home
 key: home
 title: Home
+seo_title: "Natasha Logan | Author, Entrepreneur & Creator"
 description: "Natasha Logan is an author, entrepreneur, creator and traveler. Explore her Faith & Life book collection, her school bus conversion, cycling and Envi Me Athletic Wear."
 share_image: /images/headshot.jpg
 eyebrow: Author · Creator · Traveler
@@ -10,9 +11,9 @@ intro: Mother, partner, author, entrepreneur, creator, traveler, cyclist, and li
 portrait: /images/headshot.jpg
 features:
   - title: My Family
-    text: "Love, roots and legacy: my children, my partner and five generations of women in one frame."
+    text: "Love, roots and legacy: my children and five generations of women in one frame."
     link_text: Meet my family
-    image: /images/myfamily/05_five_generations.png
+    image: /images/myfamily/05_five_generations.jpg
     page: /family.html
   - title: Books
     text: Books, workbooks and planners for a life of faith, purpose and growth.

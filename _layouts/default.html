@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-  {%- if page.key == "home" %}{% assign full_title = site.title %}{% else %}{% assign full_title = page.title | append: " | " | append: site.title %}{% endif %}
+  {%- if page.key == "home" %}{% assign full_title = page.seo_title | default: site.title %}{% else %}{% assign full_title = page.title | append: " | " | append: site.title %}{% endif %}
   {%- assign canonical = page.url | replace: "index.html", "" | absolute_url %}
   {%- assign share_image = page.share_image | default: "/images/headshot.jpg" | absolute_url %}
   <meta charset="utf-8">
@@ -17,10 +17,12 @@
   <meta property="og:description" content="{{ page.description | escape }}">
   <meta property="og:url" content="{{ canonical }}">
   <meta property="og:image" content="{{ share_image }}">
+  <meta property="og:image:alt" content="{{ full_title | escape }}">
   <meta name="twitter:card" content="{% if share_image contains 'headshot' %}summary{% else %}summary_large_image{% endif %}">
   <meta name="twitter:title" content="{{ full_title | escape }}">
   <meta name="twitter:description" content="{{ page.description | escape }}">
   <meta name="twitter:image" content="{{ share_image }}">
+  <meta name="twitter:image:alt" content="{{ full_title | escape }}">
   {%- if page.key == "home" or page.key == "about" %}
   <script type="application/ld+json">
   {
@@ -91,7 +93,16 @@
   <footer class="site-footer">
     <div class="wrap">
       <span>&copy; {{ site.time | date: "%Y" }} Natasha Logan</span>
-      <span>Home · About · Family · Books · Skoolie · Cycling · Envi Me · Contact</span>
+      <nav aria-label="Footer">
+        <a href="{{ '/' | relative_url }}">Home</a> ·
+        <a href="{{ '/about.html' | relative_url }}">About</a> ·
+        <a href="{{ '/family.html' | relative_url }}">Family</a> ·
+        <a href="{{ '/books.html' | relative_url }}">Books</a> ·
+        <a href="{{ '/skoolie.html' | relative_url }}">Skoolie</a> ·
+        <a href="{{ '/cycling.html' | relative_url }}">Cycling</a> ·
+        <a href="{{ '/envime.html' | relative_url }}">Envi Me</a> ·
+        <a href="{{ '/contact.html' | relative_url }}">Contact</a>
+      </nav>
     </div>
   </footer>
   <script src="{{ '/js/main.js' | relative_url }}"></script>

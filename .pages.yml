@@ -45,6 +45,7 @@ content:
           - { name: layout, type: string, hidden: true, default: home }
           - { name: key, type: string, hidden: true, default: home }
           - { name: title, label: Page name, type: string, hidden: true, default: Home }
+          - { name: seo_title, label: Search result title, type: string }
           - { name: description, label: Search description, type: text }
           - { name: share_image, label: Share image, type: image }
           - { name: eyebrow, label: Small label above name, type: string }
@@ -122,17 +123,6 @@ content:
               - { name: names, label: Names, type: string }
               - { name: text, label: Text, type: text }
               - { name: photo, label: Photo, component: photo }
-          - name: partner_section
-            label: Partner section
-            type: object
-            fields:
-              - { name: heading, label: Heading, type: string }
-              - { name: names, label: Name, type: string }
-              - { name: text, label: Text, type: text }
-              - name: photos
-                label: Photos (two work best)
-                component: photo
-                list: { max: 4 }
           - name: generations_section
             label: Five generations section
             type: object
@@ -140,14 +130,7 @@ content:
               - { name: heading, label: Heading, type: string }
               - { name: subheading, label: Subheading, type: string }
               - { name: text, label: Text, type: text }
-              - { name: photo, label: Photo, component: photo }
-              - name: people
-                label: People and ages
-                type: object
-                list: true
-                fields:
-                  - { name: name, label: Name, type: string }
-                  - { name: age, label: Age, type: string }
+              - { name: photo, label: Photo, component: gallery_photo }
 
       - name: books_page
         label: Books

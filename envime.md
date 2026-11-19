@@ -3,35 +3,35 @@ layout: gallery
 key: envime
 title: Envi Me
 description: "Envi Me Athletic Wear: the sweat-wear brand Natasha Logan built from concept and design to campaign photography and a retail storefront."
-share_image: /images/envime/01_storefront.png
+share_image: /images/envime/01_storefront.jpg
 eyebrow: A Brand I Created
 heading: Envi Me
 subheading: Athletic Wear
 story_heading: From Idea to Reality
 gallery_style: cards
 photos:
-  - image: /images/envime/01_storefront.png
+  - image: /images/envime/01_storefront.jpg
     caption: The Storefront
     alt: The Envi Me Athletic Wear storefront door with the brand sign, a mannequin and a banner inside
-  - image: /images/envime/02_campaign_yoga.png
+  - image: /images/envime/02_campaign_yoga.jpg
     caption: Campaign Photography
     alt: Two models in black Envi Me athletic wear posing on yoga mats in a studio
-  - image: /images/envime/03_mens_sweat_jacket.png
+  - image: /images/envime/03_mens_sweat_jacket.jpg
     caption: Men's Sweat Wear
     alt: Envi Me social post showing the men's zipped sauna sweat jacket with its silver lining
-  - image: /images/envime/04_behind_the_scenes.png
+  - image: /images/envime/04_behind_the_scenes.jpg
     caption: Behind the Scenes
     alt: A model being fitted in Envi Me athletic wear during a gym photo shoot
-  - image: /images/envime/05_product_sweat_top.png
+  - image: /images/envime/05_product_sweat_top.jpg
     caption: Product Development
     alt: A silver and black Envi Me sweat top on a hanger against a floral wall
-  - image: /images/envime/06_product_sweat_leggings.png
+  - image: /images/envime/06_product_sweat_leggings.jpg
     caption: Product Development
     alt: Silver Envi Me sweat leggings on a hanger against a floral wall
-  - image: /images/envime/07_campaign_dumbbells.png
+  - image: /images/envime/07_campaign_dumbbells.jpg
     caption: Campaign Photography
     alt: A model lifting dumbbells in a black Envi Me sports bra and leggings
-  - image: /images/envime/08_campaign_cable.png
+  - image: /images/envime/08_campaign_cable.jpg
     caption: Campaign Photography
     alt: A model using cable handles in a gym wearing black Envi Me athletic wear
 ---
